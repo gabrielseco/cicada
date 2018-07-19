@@ -1,0 +1,30 @@
+@import '~styles/settings/global';
+@import '~styles/tools/mixins/all';
+
+$drawer-border-color: rgba(255, 255, 255, 0.1);
+$drawer-color: rgba(255, 255, 255, 0.5);
+$drawer-size: 3rem;
+
+.drawer {
+  background: transparent;
+  border-color: $drawer-border-color;
+  border-radius: 0.25rem;
+  color: $drawer-color;
+  font-size: 1.25rem;
+  height: $drawer-size;
+  line-height: 1;
+  padding: 0.25rem 0.75rem;
+  position: relative;
+  text-indent: 10em;
+  white-space: nowrap;
+  width: $drawer-size;
+}
+
+.drawer::after {
+  content: '\2261';
+  display: block;
+  font-size: 2rem;
+  position: absolute;
+  text-indent: 0;
+  top: 0.2em;
+}

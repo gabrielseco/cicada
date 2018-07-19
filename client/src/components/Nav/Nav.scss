@@ -1,0 +1,40 @@
+@import '~styles/settings/global';
+@import '~styles/settings/colors';
+@import '~styles/tools/mixins/all';
+
+.nav {
+  background: $header-background-color;
+  left: 0;
+  list-style-type: none;
+  margin: 0;
+  opacity: 0;
+  padding-left: 1em;
+  position: absolute;
+  top: 4em;
+  visibility: hidden;
+  width: 100%;
+
+  @include respond-to(medium) {
+    padding-left: calc(3.5rem + 0.43rem);
+  }
+
+  @include respond-to(large) {
+    display: flex;
+    justify-content: flex-end;
+    opacity: 1;
+    position: relative;
+    top: 0;
+    visibility: visible;
+  }
+}
+
+.collapse {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+.collapsing {
+  height: 0;
+  transition: height 0.35s ease, visibility, opacity 0.4s ease;
+}

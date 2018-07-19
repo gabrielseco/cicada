@@ -1,0 +1,42 @@
+@import '~styles/settings/global';
+@import '~styles/settings/colors';
+@import '~styles/tools/mixins/all';
+
+.container {
+  background: $header-background-color;
+  overflow: hidden;
+  padding: 0.5rem 0.8rem;
+}
+
+.innerContainer {
+  align-items: center;
+  display: flex;
+  height: calc(3.125em - 0.5rem);
+  max-width: 71.25em;
+  padding: 0 0.9375em;
+  width: 100%;
+}
+
+.logo {
+  padding: 0;
+  @include respond-to(medium) {
+    padding: 0 3rem;
+  }
+  @include respond-to(large) {
+    padding: 0 6rem;
+  }
+}
+
+.logoImg {
+  max-width: none;
+  width: 8.75em;
+}
+
+.drawerContainer {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  @include respond-to(large) {
+    display: none;
+  }
+}
