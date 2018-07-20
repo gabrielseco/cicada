@@ -14,6 +14,7 @@
 module.system=haste
 module.name_mapper='^.*\.scss$' -> 'css-module-flow'
 module.name_mapper='^actions' ->'<PROJECT_ROOT>/src/actions'
+module.name_mapper='^adapters' ->'<PROJECT_ROOT>/src/adapters'
 module.name_mapper='^behaviours' ->'<PROJECT_ROOT>/src/behaviours'
 module.name_mapper='^components' ->'<PROJECT_ROOT>/src/components'
 module.name_mapper='^config' ->'<PROJECT_ROOT>/src/config'

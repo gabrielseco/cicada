@@ -9,9 +9,9 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    new PropertyTransformer().getProperties('barcelona').then(response => {
+    new PropertyTransformer().getProperties('helsinki').then(response => {
       console.log('ids', response);
-    })
+    });
   }
 
   render() {
