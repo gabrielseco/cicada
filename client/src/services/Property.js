@@ -12,6 +12,10 @@ type PropertiesId = {
   id: number;
 }
 
+type Properties = {
+  title: string;
+}
+
 export class PropertyService {
   httpClient: HttpClient;
   endpoint: string;
@@ -23,8 +27,9 @@ export class PropertyService {
     return this.httpClient.get(`/properties-by-id/${city}`);
   }
 
-  getProperties(ids: number[]): AxiosPromise<Response<PropertiesId>> {
-    console.log('ids', ids);
+  getProperties(ids: number[]): AxiosPromise<Response<Properties>> {
+    const newIds = ids.join(',');
+    return this.httpClient.get(`/properties?ids=${newIds}`);
   }
 
 }

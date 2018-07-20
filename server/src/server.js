@@ -28,9 +28,9 @@ app.get('/properties-by-id/:city', PropertiesById);
 app.get('/properties', Properties);
 
 app.get('*', (req, res) => {
-  res.status(200).json({
-    message: 'Route does not exist'
-  })
+  res.status(404).json({
+    message: 'Route does not exist',
+  });
 });
 
 app.listen(APP_PORT, () => {
