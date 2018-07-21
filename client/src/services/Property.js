@@ -46,7 +46,7 @@ export class PropertyService {
     downloadAnchorNode.setAttribute('href', dataStr);
     downloadAnchorNode.setAttribute(
       'download',
-      Math.random().toString(8) + '.json'
+      new Date().toISOString() + '.json'
     );
     /* eslint-enable */
     (document: any).body.appendChild(downloadAnchorNode);
