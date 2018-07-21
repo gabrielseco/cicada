@@ -94,17 +94,14 @@ class Header extends React.Component<Props, State> {
             <DrawerNav onClick={() => this.onMenuOpen()} />
           </div>
           <Nav isOpen={this.state.isOpen}>
-            <NavItem to="/">Home</NavItem>
-            <NavItem to="https://www.bandsintown.com/a/3386497" newTab>
-              Tour
-            </NavItem>
-            <NavItem to="/music">Music</NavItem>
-            <NavItem to="https://www.themartingarrixshop.com/" newTab>
-              Shop
-            </NavItem>
-            <NavItem to="/contact">Contact</NavItem>
-            <NavItem to="http://stmpd.co/y7dZbVWE" newTab featured>
-              ADE 2018
+            <NavItem to="#">The Company</NavItem>
+            <NavItem to="Contact us">Contact us</NavItem>
+            <NavItem
+              to="https://cezanneondemand.intervieweb.it/spotahome/jobs/javascript_engineer_3200/en/"
+              featured
+              newTab
+            >
+              Join Us
             </NavItem>
           </Nav>
         </div>
