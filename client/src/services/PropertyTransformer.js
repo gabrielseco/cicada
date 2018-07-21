@@ -1,6 +1,7 @@
 // @flow
 
 import { PropertyService } from './Property';
+import { type Property } from './../types/property';
 
 export class PropertyTransformer {
   propertyService: PropertyService;
@@ -9,26 +10,39 @@ export class PropertyTransformer {
     this.propertyService = new PropertyService();
   }
 
-  async getProperties(city: string, limit: number = 30) {
+  getProperties(city: string, limit: number = 30): Promise<Property[]> {
+    return new Promise((resolve, reject) => {
+      this._getPropertiesIds(city, limit)
+        .then(ids => {
+          this._getProperties(ids)
+            .then(properties => resolve(properties))
+            .catch(err => reject(err));
+        })
+        .catch(err => reject(err));
+    });
+  }
+
+  _getPropertiesIds(city: string, limit: number): Promise<number[]> {
     const from = 0;
     const until = limit - 1;
-    try {
-      const {
-        data: { data : resultIds }
-      } = await this.propertyService.getPropertiesId(city);
-      const ids = resultIds.slice(from, until).map(property => property.id);
-      try {
-        const {
-          data: { data: { homecards: properties} }
-        } = await this.propertyService.getProperties(ids);
-        return properties;
-      } catch(errProperties) {
-        console.log(errProperties)
-      }
-      
-    } catch (err) {
-      console.log('err getting ids', err);
-      return err;
-    }
+    return this.propertyService
+      .getPropertiesId(city)
+      .then(({ data: { data: ids } }) => {
+        return ids.slice(from, until).map(property => property.id);
+      })
+      .catch(err => err);
+  }
+
+  _getProperties(ids: number[]): Promise<Property[]> {
+    return this.propertyService
+      .getProperties(ids)
+      .then(
+        ({
+          data: {
+            data: { homecards: properties }
+          }
+        }) => properties
+      )
+      .catch(err => err);
   }
 }

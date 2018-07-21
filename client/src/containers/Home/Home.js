@@ -2,15 +2,16 @@
 import React, { Component } from 'react';
 import { Header } from 'components';
 import { PropertyTransformer } from './../../services/PropertyTransformer';
+import { type Property } from './../../types/property';
 
 type Props = {};
 
 type State = {
-  properties: []
-}
+  properties: Property[]
+};
 
 class Home extends Component<Props, State> {
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
     this.state = {
       properties: []
@@ -18,11 +19,16 @@ class Home extends Component<Props, State> {
   }
 
   componentDidMount() {
-    new PropertyTransformer().getProperties('madrid').then(properties => {
-      this.setState({
-        properties: properties
+    new PropertyTransformer()
+      .getProperties('helsinki')
+      .then(properties => {
+        this.setState({
+          properties: properties
+        });
       })
-    });
+      .catch(err => {
+        console.log('err getProperties', err.message);
+      });
   }
 
   render() {
@@ -30,7 +36,7 @@ class Home extends Component<Props, State> {
       <React.Fragment>
         <Header />
         {this.state.properties.map(property => {
-          return <h1>{property.title}</h1>
+          return <h1 key={property.id}>{property.title}</h1>;
         })}
       </React.Fragment>
     );
