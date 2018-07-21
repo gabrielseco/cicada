@@ -1,7 +1,7 @@
 {
-  "name": "martin-garrix-clone",
+  "name": "cicada",
   "version": "1.0.0",
-  "description": "A martin garrix clone",
+  "description": "Just cicada",
   "main": "index.js",
   "scripts": {
     "cypress": "cypress open",

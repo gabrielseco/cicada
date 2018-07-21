@@ -1,0 +1,16 @@
+.button {
+  background: #418e37;
+  border: 0;
+  border-radius: 0.5em;
+  box-shadow: 0 0.4em #86b47f;
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 0.8em;
+  text-shadow: 1px 1px #86b47f;
+}
+
+.button:hover {
+  background: #418e37;
+  box-shadow: 0 0.3em #86b47f;
+  transform: translateY(0.1em);
+}

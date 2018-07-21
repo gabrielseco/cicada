@@ -1,8 +1,8 @@
 // @flow
 import React, { Component } from 'react';
 import { Header, Filters, PropertyList } from 'components';
-/* import { PropertyTransformer } from './../../services/PropertyTransformer';
- */ import { type Property } from './../../types/property';
+import { PropertyTransformer } from './../../services/PropertyTransformer';
+import { type Property } from './../../types/property';
 
 type Props = {};
 
@@ -19,7 +19,7 @@ class Home extends Component<Props, State> {
   }
 
   componentDidMount() {
-    /* new PropertyTransformer()
+    new PropertyTransformer()
       .getProperties('madrid')
       .then(properties => {
         this.setState({
@@ -28,27 +28,26 @@ class Home extends Component<Props, State> {
       })
       .catch(err => {
         console.log('err getProperties', err);
-      }); */
+      });
   }
 
-  /*
-    {this.state.properties.map(property => {
-          return (
-            <div>
-              <h1 key={property.id}>{property.title}</h1>
-              <img src={property.photoUrls.homecard} alt={property.title} />
-            </div>
-          );
-    })}
-  */
+  onChange(evt: any) {
+    console.log('onchange', evt);
+  }
+
+  onSubmit(evt: any) {
+    console.log('submit', evt);
+  }
 
   render() {
-    console.log(this.state.properties);
     return (
       <React.Fragment>
         <Header />
-        <Filters />
-        <PropertyList />
+        <Filters
+          onChange={evt => this.onChange(evt)}
+          onSubmit={evt => this.onSubmit(evt)}
+        />
+        <PropertyList properties={this.state.properties} />
       </React.Fragment>
     );
   }

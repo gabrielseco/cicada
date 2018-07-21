@@ -1,0 +1,41 @@
+@import '~styles/settings/global';
+@import '~styles/settings/colors';
+@import '~styles/tools/mixins/all';
+
+.propertyItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.propertyItem img:hover {
+  opacity: 0.8;
+  transition: 0.3s opacity ease-in;
+}
+
+.title {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.priceContainer {
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+}
+
+.price {
+  background: $body-color;
+  border-radius: 0.8em;
+  color: #fbcf30;
+  padding: 1em;
+}
+
+.buttonActions {
+  display: flex;
+  justify-content: center;
+}
+
+.propertyItem button {
+  margin: 1em;
+  width: 9em;
+}

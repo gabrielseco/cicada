@@ -1,54 +1,77 @@
 // @flow
 import React, { Component } from 'react';
+import { Button } from 'components';
 import styles from './Filters.scss';
 
-type Props = {};
-type State = {};
+type Props = {
+  onSubmit: Function,
+  onChange: Function
+};
+
+type State = {
+  type: string,
+  sort: string
+};
 
 class Filters extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = {};
+    this.state = {
+      type: 'all',
+      sort: 'ascending'
+    };
   }
 
   onChange(evt: { target: { value: string } }, stateKey: string) {
-    console.log({
-      evt: evt.target.value,
-      stateKey: stateKey
+    const value = evt.target.value;
+    this.setState(state => {
+      return {
+        ...state,
+        [stateKey]: value
+      };
+    });
+    this.props.onChange({
+      evt: value,
+      key: stateKey
     });
   }
 
-  onSubmit() {}
+  onSubmit(evt: any) {
+    evt.preventDefault();
+    this.props.onSubmit(this.state);
+  }
 
   render() {
     return (
-      <form onSubmit={() => this.onSubmit}>
+      <form onSubmit={evt => this.onSubmit(evt)}>
         <h2 className={styles.title}>Filters</h2>
         <div className={styles.formGroup}>
           <label htmlFor="property-type">Property type:</label>
           <select
             id="property-type"
+            value={this.state.type}
             onChange={evt => this.onChange(evt, 'type')}
           >
-            <option value="''">All</option>
-            <option value="'apartaments'">Apartaments</option>
-            <option value="'rooms'">Rooms</option>
-            <option value="'studios'">Studios</option>
-            <option value="'residences'">Residences</option>
+            <option value="all">All</option>
+            <option value="apartaments">Apartaments</option>
+            <option value="rooms">Rooms</option>
+            <option value="studios">Studios</option>
+            <option value="residences">Residences</option>
           </select>
         </div>
         <div className={styles.formGroup}>
           <label htmlFor="property-sort">Sort by Price</label>
           <select
             id="property-sort"
+            value={this.state.sort}
             onChange={evt => this.onChange(evt, 'sort')}
           >
-            <option value="'ascending'">Ascending</option>
-            <option value="'descending'">Descending</option>
+            <option value="ascending">Ascending</option>
+            <option value="descending">Descending</option>
           </select>
         </div>
         <div className={styles.formGroup}>
-          <button type="submit">Download JSON</button>
+          <Button type="submit">Download JSON</Button>
         </div>
       </form>
     );

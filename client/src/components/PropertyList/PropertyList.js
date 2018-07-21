@@ -1,8 +1,12 @@
 // @flow
 import React, { Component } from 'react';
-/* import styles from './PropertyList.scss';
- */
-type Props = {};
+import { PropertyItem } from 'components';
+import styles from './PropertyList.scss';
+import { type Property } from './../../types/property';
+
+type Props = {
+  properties: Property[]
+};
 
 type State = {};
 
@@ -14,9 +18,11 @@ class PropertyList extends Component<Props, State> {
 
   render() {
     return (
-      <div>
-        <h2>PropertyList Stateful Component generated from the cli</h2>
-      </div>
+      <ul className={styles.container}>
+        {this.props.properties.map(property => (
+          <PropertyItem key={property.id} property={property} />
+        ))}
+      </ul>
     );
   }
 }
