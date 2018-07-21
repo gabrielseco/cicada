@@ -1,4 +1,7 @@
 export type Property = {
   id: number,
-  title: string
+  title: string,
+  photoUrls: {
+    homecard: string
+  }
 };

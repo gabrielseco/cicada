@@ -2,8 +2,8 @@
 @import '~styles/settings/colors';
 @import '~styles/tools/mixins/all';
 
-$nav-item-featured-color: #ffff42;
-$nav-item-color-hover: rgba(255, 255, 255, 0.75);
+$nav-item-featured-color: #fdd030;
+$nav-item-color-hover: #a3a3a3;
 $nav-item-size: 0.875em;
 
 .navItem {
@@ -19,7 +19,6 @@ $nav-item-size: 0.875em;
 }
 
 .navLink {
-  color: $white;
   font-size: $nav-item-size;
   font-weight: bold;
   letter-spacing: 0.0625em;
