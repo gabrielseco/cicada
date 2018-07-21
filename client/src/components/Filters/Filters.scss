@@ -1,0 +1,44 @@
+@import '~styles/settings/global';
+@import '~styles/tools/mixins/all';
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @include respond-to(large) {
+    width: 33.33%;
+  }
+}
+
+.title {
+  margin: 0;
+  text-align: center;
+}
+
+.formGroup {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 1em;
+
+  label {
+    grid-column: 2 span;
+    place-self: center;
+    width: 100%;
+  }
+
+  select {
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 0.25em;
+    grid-column: 1 span;
+    height: 3em;
+    padding: 2em;
+    width: 100%;
+  }
+
+  button {
+    grid-column-end: 3;
+    grid-column-start: 2;
+  }
+}

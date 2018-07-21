@@ -1,8 +1,8 @@
 // @flow
 import React, { Component } from 'react';
-import { Header } from 'components';
-import { PropertyTransformer } from './../../services/PropertyTransformer';
-import { type Property } from './../../types/property';
+import { Header, Filters, PropertyList } from 'components';
+/* import { PropertyTransformer } from './../../services/PropertyTransformer';
+ */ import { type Property } from './../../types/property';
 
 type Props = {};
 
@@ -19,7 +19,7 @@ class Home extends Component<Props, State> {
   }
 
   componentDidMount() {
-    new PropertyTransformer()
+    /* new PropertyTransformer()
       .getProperties('madrid')
       .then(properties => {
         this.setState({
@@ -28,21 +28,27 @@ class Home extends Component<Props, State> {
       })
       .catch(err => {
         console.log('err getProperties', err);
-      });
+      }); */
   }
 
-  render() {
-    return (
-      <React.Fragment>
-        <Header />
-        {this.state.properties.map(property => {
+  /*
+    {this.state.properties.map(property => {
           return (
             <div>
               <h1 key={property.id}>{property.title}</h1>
               <img src={property.photoUrls.homecard} alt={property.title} />
             </div>
           );
-        })}
+    })}
+  */
+
+  render() {
+    console.log(this.state.properties);
+    return (
+      <React.Fragment>
+        <Header />
+        <Filters />
+        <PropertyList />
       </React.Fragment>
     );
   }
