@@ -3,5 +3,6 @@ export type Property = {
   title: string,
   photoUrls: {
     homecard: string
-  }
+  },
+  pricePerMonth: number
 };

@@ -8,12 +8,17 @@ type Props = {
   onChange: Function
 };
 
-type State = {
+export type FiltersState = {
   type: string,
   sort: string
 };
 
-class Filters extends Component<Props, State> {
+export type OnChangeEvent = {
+  value: string,
+  key: 'sort' | 'type'
+};
+
+class Filters extends Component<Props, FiltersState> {
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -31,7 +36,7 @@ class Filters extends Component<Props, State> {
       };
     });
     this.props.onChange({
-      evt: value,
+      value: value,
       key: stateKey
     });
   }

@@ -3,6 +3,11 @@ import React, { Component } from 'react';
 import { Header, Filters, PropertyList } from 'components';
 import { PropertyTransformer } from './../../services/PropertyTransformer';
 import { type Property } from './../../types/property';
+import {
+  type OnChangeEvent,
+  type FiltersState
+} from './../../components/Filters/Filters';
+import { PropertyService } from '../../services/Property';
 
 type Props = {};
 
@@ -23,7 +28,10 @@ class Home extends Component<Props, State> {
       .getProperties('madrid')
       .then(properties => {
         this.setState({
-          properties: properties
+          properties: new PropertyService().sortProperties(
+            properties,
+            'ascending'
+          )
         });
       })
       .catch(err => {
@@ -31,12 +39,27 @@ class Home extends Component<Props, State> {
       });
   }
 
-  onChange(evt: any) {
-    console.log('onchange', evt);
+  onChange(evt: OnChangeEvent) {
+    if (evt.key === 'sort') {
+      const properties = new PropertyService().sortProperties(
+        this.state.properties,
+        evt.value
+      );
+      this.setState({
+        properties: properties
+      });
+    }
+
+    if (evt.key === 'type') {
+      // TODO sort by type
+    }
   }
 
-  onSubmit(evt: any) {
-    console.log('submit', evt);
+  onSubmit(evt: FiltersState) {
+    new PropertyService().downloadPayload({
+      filters: evt,
+      properties: this.state.properties
+    });
   }
 
   render() {
