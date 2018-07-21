@@ -1,6 +1,9 @@
 import request from 'request';
 import BASE_URL from './config';
-import { transformQueryParams, replaceAmperSand } from './utils';
+import {
+  transformQueryParams,
+  replaceAmperSand,
+} from './utils';
 
 const LISTINGS_SEARCH_ENDPOINT = '/listings/search';
 
