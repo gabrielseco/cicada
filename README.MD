@@ -44,3 +44,4 @@ For the layout I tried to mix flexbox and grid layout.
 * [ ] Loader for ---> PropertyList
 * [ ] Error Handling API calls
 * [ ] Test the code with unit tests
+* [ ] Support IE Polyfill Object assign, Css Grid...
