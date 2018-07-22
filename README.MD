@@ -2,10 +2,8 @@
 
 ## Install
 ```sh
-cd server
-npm install
-cd client
-npm install
+cd server && npm install
+cd client && npm install
 ```
 
 ## Run Server
@@ -20,5 +18,36 @@ npm install
   npm run dev
 ```
 
-## Instructions
+## What I used
+
+A server with express as a proxy making the api calls.
+I hosted the project in heroku.
+
+In the client I have an adapter for axios to make the api calls.
+
+I used React with a custom configuration that I am always improving to get better understanding of webpack.
+
+I used CSS Modules for styling.
+
+I used React Router and used the hash from the location to change the city and used React Loadable for code-splitting.
+
+For the global CSS I have something inspired by ITCSS Arquitecture.
+
+I used flow for some static analysis.
+
+For the layout I tried to mix flexbox and grid layout.
+
+
+## What I need to improve.
+
+* [ ] I need to improve the Responsive design.
+* [ ] Fix button toggle mobile
+* [ ] Disable button download payload until properties are loaded
+* [ ] Loader for ---> PropertyList
+* [ ] Unify Colors with vars
+* [ ] Error Handling API calls
+* [ ] Test the code with unit tests
+
+
+
 

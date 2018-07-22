@@ -57,19 +57,22 @@ class Home extends Component<Props, State> {
         ...state,
         city: city
       }));
-      this.getPropertiesByCity(city);
+      this.getProperties({ city, type: this.state.filters.type });
     });
-    this.getPropertiesByCity(this.state.city);
+    this.getProperties({
+      city: this.state.city,
+      type: this.state.filters.type
+    });
   }
 
   componentWillUnmount() {
     this.unlisten();
   }
 
-  getPropertiesByCity(city: string) {
+  getProperties({ city, type }) {
     PropertyTransformerFactory({
       city: city,
-      type: this.state.filters.type
+      type: type
     })
       .then(properties => this.updateProperties(properties))
       .catch(error => this.logError(error));
@@ -113,12 +116,11 @@ class Home extends Component<Props, State> {
         type: type
       }
     }));
-    PropertyTransformerFactory({
+
+    this.getProperties({
       city: city,
       type: type
-    })
-      .then(properties => this.updateProperties(properties))
-      .catch(error => this.logError(error));
+    });
   }
 
   updateProperties(properties: Property[]) {
