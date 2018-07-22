@@ -1,10 +1,10 @@
 $system-fonts: 'Open Sans', sans-serif;
-$body-background-color: #ffffff;
+$body-background-color: $white;
 $body-font-size: 1rem;
 
 body {
   background: $body-background-color;
-  color: $body-color;
+  color: $black;
   font-family: $system-fonts;
   font-size: $body-font-size;
   font-weight: 400;

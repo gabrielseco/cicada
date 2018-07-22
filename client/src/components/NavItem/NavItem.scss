@@ -2,8 +2,8 @@
 @import '~styles/settings/colors';
 @import '~styles/tools/mixins/all';
 
-$nav-item-featured-color: #fdd030;
-$nav-item-color-hover: #a3a3a3;
+$nav-item-featured-color: $orange;
+$nav-item-color-hover: $grey;
 $nav-item-size: 0.875em;
 
 .navItem {

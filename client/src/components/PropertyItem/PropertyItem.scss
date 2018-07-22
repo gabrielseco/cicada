@@ -3,8 +3,8 @@
 @import '~styles/tools/mixins/all';
 
 .propertyItem {
-  background: #ffffff;
-  border: 1px solid rgba(51, 51, 51, 0.5);
+  background: $white;
+  border: 1px solid $grey;
   display: flex;
   flex-direction: column;
   margin-bottom: 1em;
@@ -63,9 +63,9 @@
 }
 
 .price {
-  background: $body-color;
+  background: $black;
   border-radius: 0.8em;
-  color: #fbcf30;
+  color: $yellow;
   font-weight: bold;
   padding: 1em;
 }

@@ -1,27 +1,30 @@
+@import '~styles/settings/global';
+@import '~styles/settings/colors';
+
 .button {
-  background: #418e37;
+  background: $green;
   border: 0;
   border-radius: 0.5em;
-  box-shadow: 0 0.4em #86b47f;
-  color: #ffffff;
+  box-shadow: 0 0.4em $light-green;
+  color: $white;
   font-size: 1rem;
   padding: 0.8em;
-  text-shadow: 1px 1px #86b47f;
+  text-shadow: 1px 1px $light-green;
 }
 
 .button:hover {
-  background: #418e37;
-  box-shadow: 0 0.3em #86b47f;
+  background: $green;
+  box-shadow: 0 0.3em $light-green;
   transform: translateY(0.1em);
 }
 
 .secondaryButton {
-  background: #f58c28;
-  box-shadow: 0 0.4em #a7661e;
-  text-shadow: 1px 1px #a7661e;
+  background: $orange;
+  box-shadow: 0 0.4em $dark-orange;
+  text-shadow: 1px 1px $dark-orange;
 }
 
 .secondaryButton:hover {
-  background: #f58c28;
-  box-shadow: 0 0.3em #a7661e;
+  background: $orange;
+  box-shadow: 0 0.3em $dark-orange;
 }

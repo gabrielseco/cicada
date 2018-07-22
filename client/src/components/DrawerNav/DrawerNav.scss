@@ -1,8 +1,9 @@
 @import '~styles/settings/global';
+@import '~styles/settings/colors';
 @import '~styles/tools/mixins/all';
 
-$drawer-border-color: #d2d2d2;
-$drawer-color: #343233;
+$drawer-border-color: $grey;
+$drawer-color: $black;
 $drawer-size: 3rem;
 
 .drawer {

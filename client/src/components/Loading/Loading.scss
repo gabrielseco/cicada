@@ -1,7 +1,10 @@
+@import '~styles/settings/global';
+@import '~styles/settings/colors';
+
 .container {
   align-items: center;
-  background: #0c0c0c;
-  color: #ffffff;
+  background: $black;
+  color: $white;
   display: flex;
   font-size: 4rem;
   height: 100vh;
