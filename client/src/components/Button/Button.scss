@@ -12,6 +12,10 @@
   text-shadow: 1px 1px $light-green;
 }
 
+.button:disabled {
+  cursor: not-allowed;
+}
+
 .button:hover {
   background: $green;
   box-shadow: 0 0.3em $light-green;

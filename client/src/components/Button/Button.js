@@ -7,19 +7,26 @@ const Button = ({
   children,
   onClick = () => {},
   type,
-  secondary
+  secondary,
+  disabled
 }: {
   children: any,
   onClick: Function,
   type: string,
-  secondary: ?boolean
+  secondary?: boolean,
+  disabled?: boolean
 }) => {
   const classNames = applyClasses({
     [styles.button]: true,
     [styles.secondaryButton]: secondary
   });
   return (
-    <button className={classNames} type={type} onClick={() => onClick()}>
+    <button
+      disabled={disabled}
+      className={classNames}
+      type={type}
+      onClick={() => onClick()}
+    >
       {children}
     </button>
   );

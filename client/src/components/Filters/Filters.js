@@ -6,7 +6,8 @@ import styles from './Filters.scss';
 type Props = {
   onSubmit: Function,
   onChange: Function,
-  filters: FiltersState
+  filters: FiltersState,
+  isLoading: boolean
 };
 
 export type FiltersState = {
@@ -77,7 +78,9 @@ class Filters extends Component<Props, FiltersState> {
           </select>
         </div>
         <div className={styles.formGroup}>
-          <Button type="submit">Download JSON</Button>
+          <Button type="submit" disabled={this.props.isLoading}>
+            Download JSON
+          </Button>
         </div>
       </form>
     );

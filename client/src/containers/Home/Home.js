@@ -148,6 +148,7 @@ class Home extends Component<Props, State> {
         <div className={styles.wrapper}>
           <div className={styles.filterContainer}>
             <Filters
+              isLoading={this.state.properties.length === 0}
               filters={this.state.filters}
               onChange={evt => this.onChange(evt)}
               onSubmit={evt => this.onSubmit(evt)}

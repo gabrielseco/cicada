@@ -39,15 +39,8 @@ For the layout I tried to mix flexbox and grid layout.
 
 
 ## What I need to improve.
-
 * [ ] I need to improve the Responsive design.
 * [ ] Fix button toggle mobile
-* [ ] Disable button download payload until properties are loaded
 * [ ] Loader for ---> PropertyList
-* [ ] Unify Colors with vars
 * [ ] Error Handling API calls
 * [ ] Test the code with unit tests
-
-
-
-
