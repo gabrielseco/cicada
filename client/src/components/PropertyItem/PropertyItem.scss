@@ -3,8 +3,26 @@
 @import '~styles/tools/mixins/all';
 
 .propertyItem {
+  background: #ffffff;
+  border: 1px solid rgba(51, 51, 51, 0.5);
   display: flex;
   flex-direction: column;
+  margin-bottom: 1em;
+
+  @include respond-to(large) {
+    display: grid;
+    grid-gap: 0;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+  }
+}
+
+.propertyItem img {
+  height: 100%;
+  @include respond-to(large) {
+    grid-column: 1 span;
+    grid-row: 2 span;
+  }
 }
 
 .propertyItem img:hover {
@@ -12,27 +30,56 @@
   transition: 0.3s opacity ease-in;
 }
 
+.secondColumn {
+  @include respond-to(large) {
+    align-items: center;
+    display: flex;
+    grid-column: 2 / 4;
+  }
+}
+
 .title {
   font-size: 1.5rem;
   text-align: center;
+
+  @include respond-to(large) {
+    display: inline-block;
+    margin-right: 3.125em;
+    padding: 0 1em;
+    width: calc(80% - 4.125em);
+  }
 }
 
 .priceContainer {
   display: flex;
   justify-content: center;
   margin: 1em;
+
+  @include respond-to(large) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 }
 
 .price {
   background: $body-color;
   border-radius: 0.8em;
   color: #fbcf30;
+  font-weight: bold;
   padding: 1em;
 }
 
 .buttonActions {
   display: flex;
   justify-content: center;
+  
+  @include respond-to(large) {
+    display: block;
+    grid-column: 2/4;
+    grid-row: 2/3;
+    justify-self: end;
+  }
 }
 
 .propertyItem button {

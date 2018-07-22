@@ -65,7 +65,7 @@ class Filters extends Component<Props, FiltersState> {
           </select>
         </div>
         <div className={styles.formGroup}>
-          <label htmlFor="property-sort">Sort by Price</label>
+          <label htmlFor="property-sort">Sort by Price: </label>
           <select
             id="property-sort"
             value={this.state.sort}

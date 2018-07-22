@@ -1,0 +1,28 @@
+@import '~styles/settings/global';
+@import '~styles/tools/mixins/all';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+
+  @include respond-to(medium) {
+    flex-direction: row;
+  }
+}
+
+.filterContainer {
+  width: 100%;
+
+  @include respond-to(medium) {
+    padding-right: 1em;
+    width: calc(33.33% - 1em);
+  }
+}
+
+.propertyListContainer {
+  width: 100%;
+  @include respond-to(medium) {
+    width: calc(66.66% - 1em);
+  }
+}

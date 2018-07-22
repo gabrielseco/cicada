@@ -1,3 +1,5 @@
+* [ ] Button secondary color
+* [ ] Unify Colors
 * [ ] UI PropertyItems
 * [ ] Filter the list of properties
 * [ ] Based in your browser city make the call to the api

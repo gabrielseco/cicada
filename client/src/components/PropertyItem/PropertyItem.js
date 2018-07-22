@@ -7,9 +7,11 @@ import { type Property } from './../../types/property';
 const PropertyItem = ({ property }: { property: Property }) => (
   <li className={styles.propertyItem}>
     <img src={property.photoUrls.homecard} alt={property.title} />
-    <h2 className={styles.title}>{property.title}</h2>
-    <div className={styles.priceContainer}>
-      <span className={styles.price}>{property.pricePerMonth}€</span>
+    <div className={styles.secondColumn}>
+      <h2 className={styles.title}>{property.title}</h2>
+      <div className={styles.priceContainer}>
+        <span className={styles.price}>{property.pricePerMonth}€</span>
+      </div>
     </div>
     <div className={styles.buttonActions}>
       <Button type="button">More Details</Button>

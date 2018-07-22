@@ -8,6 +8,7 @@ import {
   type FiltersState
 } from './../../components/Filters/Filters';
 import { PropertyService } from '../../services/Property';
+import styles from './Home.scss';
 
 type Props = {};
 
@@ -66,11 +67,17 @@ class Home extends Component<Props, State> {
     return (
       <React.Fragment>
         <Header />
-        <Filters
-          onChange={evt => this.onChange(evt)}
-          onSubmit={evt => this.onSubmit(evt)}
-        />
-        <PropertyList properties={this.state.properties} />
+        <div className={styles.wrapper}>
+          <div className={styles.filterContainer}>
+            <Filters
+              onChange={evt => this.onChange(evt)}
+              onSubmit={evt => this.onSubmit(evt)}
+            />
+          </div>
+          <div className={styles.propertyListContainer}>
+            <PropertyList properties={this.state.properties} />
+          </div>
+        </div>
       </React.Fragment>
     );
   }

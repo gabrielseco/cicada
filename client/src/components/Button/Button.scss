@@ -14,3 +14,14 @@
   box-shadow: 0 0.3em #86b47f;
   transform: translateY(0.1em);
 }
+
+.secondaryButton {
+  background: #f58c28;
+  box-shadow: 0 0.4em #a7661e;
+  text-shadow: 1px 1px #a7661e;
+}
+
+.secondaryButton:hover {
+  background: #f58c28;
+  box-shadow: 0 0.3em #a7661e;
+}
