@@ -15,7 +15,7 @@
     "dev": "node config/browser-open.js && node config/webpack-server.js",
     "prebuild": "rm -rf ./public",
     "build": "npm run build:prod",
-    "postbuild": "mv public/static/index.html public/index.html",
+    "postbuild": "mv public/static/index.html public/index.html && npm run copy:files",
     "build:prod": "webpack -p --config ./config/webpack.prod.config.js",
     "copy:files": "rm -rf ./../server/public && cp -r public ./../server/public",
     "serve:prod": "http-server public -p 8080",

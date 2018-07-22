@@ -1,0 +1,20 @@
+{
+  "name": "cicada",
+  "version": "1.0.0",
+  "description": "Cicada",
+  "main": "index.js",
+  "scripts": {
+    "prod": "cd ./server && npm install && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielseco/cicada.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gabrielseco/cicada/issues"
+  },
+  "homepage": "https://github.com/gabrielseco/cicada#readme"
+}
