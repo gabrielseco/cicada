@@ -8,9 +8,10 @@ import {
 const LISTINGS_SEARCH_ENDPOINT = '/listings/search';
 
 const getPropertiesByIdParams = (req) => {
+  const ALL_TYPE = 'all';
   const city = req.params.city;
   const typeQuery = req.query.type;
-  const typeParam = typeQuery ? replaceAmperSand(transformQueryParams([typeQuery], 'type[]')) : '';
+  const typeParam = typeQuery !== ALL_TYPE ? replaceAmperSand(transformQueryParams([typeQuery], 'type[]')) : '';
 
   return {
     city,

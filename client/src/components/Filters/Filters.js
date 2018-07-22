@@ -5,7 +5,8 @@ import styles from './Filters.scss';
 
 type Props = {
   onSubmit: Function,
-  onChange: Function
+  onChange: Function,
+  filters: FiltersState
 };
 
 export type FiltersState = {
@@ -22,8 +23,8 @@ class Filters extends Component<Props, FiltersState> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      type: 'all',
-      sort: 'ascending'
+      type: this.props.filters.type || 'all',
+      sort: this.props.filters.sort || 'ascending'
     };
   }
 

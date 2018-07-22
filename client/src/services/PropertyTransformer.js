@@ -44,11 +44,10 @@ export class PropertyTransformer {
     limit: number
   }): Promise<number[]> {
     const from = 0;
-    const until = limit - 1;
     return this.propertyService
       .getPropertiesId({ city: city, type: type })
       .then(({ data: { data: ids } }) => {
-        return ids.slice(from, until).map(property => property.id);
+        return ids.slice(from, limit).map(property => property.id);
       })
       .catch(err => err);
   }
