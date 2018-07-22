@@ -1,7 +1,6 @@
 @import '~styles/settings/global';
 @import '~styles/tools/mixins/all';
 
-
 form {
   @include respond-to(medium) {
     margin-top: 1em;

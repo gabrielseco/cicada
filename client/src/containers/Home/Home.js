@@ -26,7 +26,9 @@ class Home extends Component<Props, State> {
 
   componentDidMount() {
     new PropertyTransformer()
-      .getProperties('madrid')
+      .getProperties({
+        city: 'madrid'
+      })
       .then(properties => {
         this.setState({
           properties: new PropertyService().sortProperties(
@@ -53,6 +55,21 @@ class Home extends Component<Props, State> {
 
     if (evt.key === 'type') {
       // TODO sort by type
+      new PropertyTransformer()
+        .getProperties({
+          city: 'madrid',
+          type: evt.value
+        })
+        .then(properties => {
+          const sortProperties = new PropertyService().sortProperties(
+            properties,
+            'ascending'
+          );
+
+          this.setState({
+            properties: sortProperties
+          });
+        });
     }
   }
 

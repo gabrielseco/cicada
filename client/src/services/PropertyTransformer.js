@@ -10,9 +10,21 @@ export class PropertyTransformer {
     this.propertyService = new PropertyService();
   }
 
-  getProperties(city: string, limit: number = 30): Promise<Property[]> {
+  getProperties({
+    city,
+    type,
+    limit = 30
+  }: {
+    city: string,
+    type?: string,
+    limit?: number
+  }): Promise<Property[]> {
     return new Promise((resolve, reject) => {
-      this._getPropertiesIds(city, limit)
+      this._getPropertiesIds({
+        city: city,
+        type: type,
+        limit: limit
+      })
         .then(ids => {
           this._getProperties(ids)
             .then(properties => resolve(properties))
@@ -22,11 +34,19 @@ export class PropertyTransformer {
     });
   }
 
-  _getPropertiesIds(city: string, limit: number): Promise<number[]> {
+  _getPropertiesIds({
+    city,
+    type,
+    limit
+  }: {
+    city: string,
+    type?: string,
+    limit: number
+  }): Promise<number[]> {
     const from = 0;
     const until = limit - 1;
     return this.propertyService
-      .getPropertiesId(city)
+      .getPropertiesId({ city: city, type: type })
       .then(({ data: { data: ids } }) => {
         return ids.slice(from, until).map(property => property.id);
       })

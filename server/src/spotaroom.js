@@ -7,15 +7,33 @@ import {
 
 const LISTINGS_SEARCH_ENDPOINT = '/listings/search';
 
-export const PropertiesById = (req, res) => {
+const getPropertiesByIdParams = (req) => {
   const city = req.params.city;
-  const endpoint = [BASE_URL, LISTINGS_SEARCH_ENDPOINT, `/markers/${city}`].join('');
+  const typeQuery = req.query.type;
+  const typeParam = typeQuery ? replaceAmperSand(transformQueryParams([typeQuery], 'type[]')) : '';
+
+  return {
+    city,
+    type: typeParam,
+  };
+};
+
+const getPropertiesParams = (req) => {
+  const parsedIdsParam = req.query.ids.split(',');
+  const ids = replaceAmperSand(transformQueryParams(parsedIdsParam, 'ids[]'));
+  return {
+    ids,
+  };
+};
+
+export const PropertiesById = (req, res) => {
+  const { city, type } = getPropertiesByIdParams(req);
+  const endpoint = [BASE_URL, LISTINGS_SEARCH_ENDPOINT, `/markers/${city}${type}`].join('');
   request.get(endpoint).pipe(res);
 };
 
 export const Properties = (req, res) => {
-  const parsedIdsParam = req.query.ids.split(',');
-  const queryParams = replaceAmperSand(transformQueryParams(parsedIdsParam, 'ids[]'));
-  const endpoint = [BASE_URL, LISTINGS_SEARCH_ENDPOINT, `/homecards_ids${queryParams}`].join('');
+  const { ids } = getPropertiesParams(req);
+  const endpoint = [BASE_URL, LISTINGS_SEARCH_ENDPOINT, `/homecards_ids${ids}`].join('');
   request.get(endpoint).pipe(res);
 };

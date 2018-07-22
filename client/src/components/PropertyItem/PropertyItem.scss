@@ -73,7 +73,7 @@
 .buttonActions {
   display: flex;
   justify-content: center;
-  
+
   @include respond-to(large) {
     display: block;
     grid-column: 2/4;

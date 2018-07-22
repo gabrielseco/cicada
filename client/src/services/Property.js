@@ -20,8 +20,15 @@ export class PropertyService {
     this.httpClient = new HttpClient(BASE_URL);
   }
 
-  getPropertiesId(city: string): AxiosPromise<Response<PropertyId>> {
-    return this.httpClient.get(`/properties-by-id/${city}`);
+  getPropertiesId({
+    city,
+    type
+  }: {
+    city: string,
+    type: string | typeof undefined
+  }): AxiosPromise<Response<PropertyId>> {
+    const typeParam = type === undefined ? '' : `?type=${type}`;
+    return this.httpClient.get(`/properties-by-id/${city}${typeParam}`);
   }
 
   getProperties(ids: number[]): AxiosPromise<Response<Property[]>> {
