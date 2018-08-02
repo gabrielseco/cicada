@@ -18,16 +18,21 @@ export class PropertyTransformer {
     city: string,
     type?: string,
     limit?: number
-  }): Promise<Property[]> {
+  }): Promise<{ properties: Property[], total: number }> {
     return new Promise((resolve, reject) => {
       this._getPropertiesIds({
         city: city,
         type: type,
         limit: limit
       })
-        .then(ids => {
+        .then(({ ids, total }) => {
           this._getProperties(ids)
-            .then(properties => resolve(properties))
+            .then(properties =>
+              resolve({
+                properties: properties,
+                total: total
+              })
+            )
             .catch(err => reject(err));
         })
         .catch(err => reject(err));
@@ -42,12 +47,15 @@ export class PropertyTransformer {
     city: string,
     type?: string,
     limit: number
-  }): Promise<number[]> {
+  }): Promise<{ ids: number[], total: number }> {
     const from = 0;
     return this.propertyService
       .getPropertiesId({ city: city, type: type })
       .then(({ data: { data: ids } }) => {
-        return ids.slice(from, limit).map(property => property.id);
+        return {
+          ids: ids.slice(from, limit).map(property => property.id),
+          total: ids.length
+        };
       })
       .catch(err => err);
   }

@@ -24,7 +24,8 @@ type State = {
   filters: {
     sort: string,
     type: string
-  }
+  },
+  totalProperties: number
 };
 
 const PropertyTransformerFactory = args => {
@@ -45,7 +46,8 @@ class Home extends Component<Props, State> {
       filters: {
         sort: 'ascending',
         type: 'all'
-      }
+      },
+      totalProperties: 0
     };
   }
 
@@ -74,7 +76,9 @@ class Home extends Component<Props, State> {
       city: city,
       type: type
     })
-      .then(properties => this.updateProperties(properties))
+      .then(({ properties, total }) =>
+        this.updateProperties({ properties, total })
+      )
       .catch(error => this.logError(error));
   }
 
@@ -123,9 +127,10 @@ class Home extends Component<Props, State> {
     });
   }
 
-  updateProperties(properties: Property[]) {
+  updateProperties({ properties, total }) {
     this.setState(state => ({
       ...state,
+      totalProperties: total,
       properties: sortPropertiesFactory(properties, this.state.filters.sort)
     }));
   }
@@ -155,6 +160,7 @@ class Home extends Component<Props, State> {
             />
           </div>
           <div className={styles.propertyListContainer}>
+            <span>Total: {this.state.totalProperties}</span>
             <PropertyList properties={this.state.properties} />
           </div>
         </div>
